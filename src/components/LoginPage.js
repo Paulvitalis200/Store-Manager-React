@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { loginUser } from '../redux/actions/authActions'
 
-const LoginPage = () => {
+const LoginPage = (props) => {
 
   const [form, setForm] = useState({
     email: '',
@@ -8,10 +11,22 @@ const LoginPage = () => {
   })
   const [hasSubmitted, setHasSubmitted] = useState(false)
 
+  useEffect(() => {
+    // console.log(props.auth)
+    if (props.auth.isAuthenticated === true) {
+      props.history.push('/dashboard')
+    }
+  }, [props.auth, props.history])
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(form)
-
+    const email = form['email'] || ''
+    const password = form['password'] || ''
+    const payload = {
+      email: email,
+      password: password
+    }
+    props.loginUser(payload)
   }
 
   const handleChange = (e) => {
@@ -39,4 +54,15 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage
+LoginPage.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+})
+
+export default connect(mapStateToProps, { loginUser })(LoginPage)

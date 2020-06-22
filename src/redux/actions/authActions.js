@@ -2,10 +2,11 @@ import axios from 'axios'
 import setAuthToken from '../../utils/setAuthToken'
 import jwt_decode from 'jwt-decode'
 
-import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from './types'
+import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from './type'
 
 // Login - get user token
 export const loginUser = userData => dispatch => {
+  dispatch(setUserLoading())
   axios
     .post('https://storemanagerapi2.herokuapp.com/api/v2/auth/login', userData)
     .then(res => {
@@ -16,7 +17,7 @@ export const loginUser = userData => dispatch => {
       // Set token to Auth header
       setAuthToken(access_token)
       // Decode token to get user data
-      const decoded = jwt_decode(token)
+      const decoded = jwt_decode(access_token)
       // Set current user
       dispatch(setCurrentUser(decoded))
     })
