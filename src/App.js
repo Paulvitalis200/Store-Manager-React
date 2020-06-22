@@ -2,8 +2,8 @@ import React from 'react';
 import LoginPage from './components/LoginPage';
 import './resources/main.css'
 import Dashboard from './components/Dashboard';
-import { Redirect, Route, BrowserRouter as Router, Switch } from 'react-router-dom'
-import NotFound from './components/NotFound';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+// import NotFound from './components/NotFound';
 import jwt_decode from 'jwt-decode'
 import setAuthToken from './utils/setAuthToken'
 import { setCurrentUser, logoutUser } from './redux/actions/authActions'

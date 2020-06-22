@@ -9,7 +9,7 @@ const LoginPage = (props) => {
     email: '',
     password: ''
   })
-  const [hasSubmitted, setHasSubmitted] = useState(false)
+  // const [hasSubmitted, setHasSubmitted] = useState(false)
 
   useEffect(() => {
     // console.log(props.auth)
