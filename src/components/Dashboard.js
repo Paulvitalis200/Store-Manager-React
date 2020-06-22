@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import { logoutUser } from '../redux/actions/authActions'
 
 const Dashboard = (props) => {
-
-
   useEffect(() => {
     if (props.auth.isAuthenticated === false) {
       props.history.push('/')
@@ -25,8 +23,8 @@ const Dashboard = (props) => {
       </div>
       <div>
         <div>
-          <p>Username</p>
-          <p>Role</p>
+          <p>Username: {localStorage.getItem('username')}</p>
+          <p>Role: {localStorage.getItem('role')}</p>
         </div>
         <div>
           <p>Create product</p>

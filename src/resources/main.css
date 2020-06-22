@@ -5,7 +5,7 @@ LOGIN PAGE
 .login-header{
     text-align: center;
     font-family: 'Changa One', cursive;
-    font-size: 1.4em;
+    font-size: 1.3em;
     background: #ff6781;
     padding: 20px 0 20px 0;
     color: #fff;
@@ -18,7 +18,7 @@ LOGIN PAGE
     width: 70%;
     margin: 40px auto 0 auto;
     padding: 10px 30px 50px;
-    background: #f7f7f7;
+    background: #ececec;
     border-radius: 5px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
@@ -57,3 +57,47 @@ LOGIN PAGE
     border-radius: 3px;
     padding: 5px 25px 5px 25px;
 }
+
+.login-btn-disabled {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    background:#c5c5c5;
+    border: 0;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px 25px 5px 25px;
+}
+
+#mini-loader{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0.2rem 0.5rem 0 0.5rem;
+    border: 3px solid rgba(255, 255, 255, .3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  
+  @-webkit-keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  .error {
+      color: red;
+      background: #ffcccc;
+      padding: 5px 0 5px 0;
+      width: 80%;
+      margin: 0 auto;
+      border-radius: 3px;
+  }
