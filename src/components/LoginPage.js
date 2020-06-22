@@ -38,16 +38,22 @@ const LoginPage = (props) => {
   return (
     <div>
       <div className='login-header'>
-        Store Manager
+        <h1 style={{ margin: '0' }}>Store Manager</h1>
       </div>
-      <div>
-        <h2>ACCOUNT LOGIN</h2>
+      <div className='account-section'>
+        <h2 className='account-title'>ACCOUNT LOGIN</h2>
         <form onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type='text' name='email' onChange={handleChange} />
-          <label>Password</label>
-          <input type='password' name='password' onChange={handleChange} />
-          <button>Log in</button>
+          <div className='email-container'>
+            <label className='login-label'>Email</label>
+            <input className='login-input' type='text' name='email' onChange={handleChange} />
+          </div>
+
+          <div className='email-container'>
+            <label className='login-label'>Password</label>
+            <input className='login-input' type='password' name='password' onChange={handleChange} />
+          </div>
+
+          <button className='login-btn'>Log in</button>
         </form>
       </div>
     </div>
