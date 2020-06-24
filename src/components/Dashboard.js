@@ -15,8 +15,6 @@ const Dashboard = (props) => {
     props.logoutUser()
   }
 
-  console.log(props)
-
   return (
     <div>
       <div onClick={handleLogout}>
@@ -26,6 +24,11 @@ const Dashboard = (props) => {
         <div>
           <p>Username: {localStorage.getItem('username')}</p>
           <p>Role: {localStorage.getItem('role')}</p>
+        </div>
+        <div>
+          <Link to='/products'>
+            Products
+          </Link>
         </div>
         <div>
           <p>

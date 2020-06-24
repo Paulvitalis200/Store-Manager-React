@@ -10,4 +10,13 @@ const setAuthToken = token => {
   }
 }
 
+export const getAccessToken = () => localStorage.getItem("jwtToken")
+
+export const api = axios.create({
+  baseURL: 'https://ah-robotics-staging.herokuapp.com/api/v1',
+  headers: getAccessToken() ? {
+    Authorization: `Bearer  ${getAccessToken()}`,
+  } : {},
+});
+
 export default setAuthToken
