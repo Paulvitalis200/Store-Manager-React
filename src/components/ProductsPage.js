@@ -1,25 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getAllProducts } from '../redux/actions/products/productActions'
 
-const ProductsPage = (props) => {
+const ProductsPage = React.memo(props => {
 
-  // const [products, setProducts] = useState({})
+  const [products, setProducts] = useState({})
 
-  // const getProducts = useCallback(() => {
-  //   const newProducts = props.getAllProducts()
-  //   setProducts(newProducts)
-  // })
+  const { getAllProducts, items } = props
 
   useEffect(() => {
-    // const newProduct = props.getAllProducts()
-    console.log(props)
-    // console.log(newProduct)
-    // setProducts(newProduct)
-  }, [props])
+    getAllProducts()
+  }, [getAllProducts])
 
-  // console.log(props.products)
+  useEffect(() => {
+    setProducts(items)
+  }, [items])
 
   const goToDashboard = () => {
     props.history.push('/dashboard')
@@ -27,24 +23,32 @@ const ProductsPage = (props) => {
 
   return (
     <div>
-      <p>No Products yet</p>
-      <p>Name</p>
-      <p>Price</p>
-      <p>Inventory</p>
-      <p>Minimum stock</p>
-      <p>Category</p>
+      {
+        products.length > 0 && <div>
+          {
+            products.map(product => {
+              return (
+                <div key={product['product id']}>
+                  {product.name}
+                  {product.price}
+                </div>
+              )
+            })
+          }
+        </div>
+      }
       <button style={{ margin: '20px auto 0 auto', display: 'inherit' }} className='login-btn' onClick={goToDashboard}>Back</button>
     </div>
   )
-}
+})
 
 ProductsPage.propTypes = {
   getAllProducts: PropTypes.func.isRequired,
-  products: PropTypes.object.isRequired
+  items: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({
-  products: state.products,
+  items: state.products.products,
   errors: state.productsError
 })
 
