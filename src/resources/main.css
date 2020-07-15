@@ -101,3 +101,22 @@ LOGIN PAGE
       margin: 0 auto;
       border-radius: 3px;
   }
+
+  .create-product-div {
+    text-align: center;
+    background: #fff;
+    box-shadow: 3px 3px 10px 2px #d8d8d8;
+    width: 70%;
+    margin: 40px auto 0 auto;
+    padding: 10px 30px 50px;
+    background: #ececec;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+  }
+
+@media only screen and (min-width: 768px) {
+  .account-section {
+    width: 20%;
+  }
+}

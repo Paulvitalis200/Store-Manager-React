@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from '../redux/actions/authActions'
+import { Link } from 'react-router-dom';
 
 const Dashboard = (props) => {
   useEffect(() => {
@@ -14,8 +15,6 @@ const Dashboard = (props) => {
     props.logoutUser()
   }
 
-  console.log(props)
-
   return (
     <div>
       <div onClick={handleLogout}>
@@ -27,7 +26,16 @@ const Dashboard = (props) => {
           <p>Role: {localStorage.getItem('role')}</p>
         </div>
         <div>
-          <p>Create product</p>
+          <Link to='/products'>
+            Products
+          </Link>
+        </div>
+        <div>
+          <p>
+            <Link to='/create-product'>
+              Create product
+            </Link>
+          </p>
           <p>Modify/Delete product</p>
         </div>
         <div>
