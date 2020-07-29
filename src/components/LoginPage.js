@@ -53,6 +53,8 @@ const LoginPage = (props) => {
     setErrors('')
   }
 
+  console.log(props)
+
   return (
     <div>
       <div className='login-header'>
