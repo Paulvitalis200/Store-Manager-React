@@ -11,6 +11,7 @@ import PrivateRoute from './components/PrivateRoute'
 import store from './redux/store'
 import CreateProductPage from './components/CreateProductPage';
 import ProductsPage from './components/ProductsPage';
+import SalesRecordsPage from './components/SalesRecordsPage';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -37,6 +38,7 @@ function App() {
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <PrivateRoute exact path='/create-product' component={CreateProductPage} />
         <PrivateRoute exact path='/products' component={ProductsPage} />
+        <PrivateRoute exact path='/sales' component={SalesRecordsPage} />
       </Switch>
     </Router >
   );
