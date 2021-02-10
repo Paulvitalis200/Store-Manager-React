@@ -40,7 +40,9 @@ const Dashboard = (props) => {
         </div>
         <div>
           <p>Sign Up Employee</p>
-          <p>View sales records</p>
+          <Link to='/sales'>
+            <p>View sales records</p>
+          </Link>
         </div>
         <div></div>
       </div>
